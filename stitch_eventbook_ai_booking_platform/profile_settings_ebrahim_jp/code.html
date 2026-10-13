@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile - EventBook</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#fffbff",
+                      "primary-fixed-dim": "#d0bcff",
+                      "surface-container": "#e6eeff",
+                      "surface-variant": "#d9e3f6",
+                      "on-secondary": "#ffffff",
+                      "secondary": "#5c5f60",
+                      "on-surface-variant": "#494454",
+                      "on-primary-fixed": "#23005c",
+                      "secondary-fixed-dim": "#c5c7c8",
+                      "surface-container-high": "#dee9fc",
+                      "primary-fixed": "#e9ddff",
+                      "outline-variant": "#cbc3d7",
+                      "surface-container-low": "#eff4ff",
+                      "on-background": "#121c2a",
+                      "on-tertiary-container": "#fffbff",
+                      "on-secondary-container": "#626566",
+                      "inverse-primary": "#d0bcff",
+                      "on-tertiary-fixed": "#2c1700",
+                      "surface-container-highest": "#d9e3f6",
+                      "primary": "#6b38d4",
+                      "tertiary-container": "#a76500",
+                      "background": "#f8f9ff",
+                      "error-container": "#ffdad6",
+                      "surface": "#f8f9ff",
+                      "surface-tint": "#6d3bd7",
+                      "secondary-container": "#e1e3e4",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb869",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed": "#ffdcbb",
+                      "on-surface": "#121c2a",
+                      "on-error-container": "#93000a",
+                      "outline": "#7b7486",
+                      "on-secondary-fixed": "#191c1d",
+                      "on-primary-fixed-variant": "#5516be",
+                      "surface-bright": "#f8f9ff",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#454748",
+                      "primary-container": "#8455ef",
+                      "secondary-fixed": "#e1e3e4",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary": "#855000",
+                      "inverse-surface": "#27313f",
+                      "on-tertiary-fixed-variant": "#673d00",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-error": "#ffffff",
+                      "surface-dim": "#d0dbed"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max-width": "1280px",
+                      "section-gap": "80px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "20px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "14px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        .bg-gradient-primary {
+            background-image: linear-gradient(to right, #8B5CF6, #6D28D9);
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm hidden md:flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full max-w-container-max-width mx-auto">
+<div class="flex items-center gap-4 text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined hover:opacity-80 transition-opacity active:scale-95 duration-200 cursor-pointer" data-icon="menu">menu</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">EventBook</div>
+<div class="flex items-center gap-4 text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined hover:opacity-80 transition-opacity active:scale-95 duration-200 cursor-pointer" data-icon="smart_toy">smart_toy</span>
+</div>
+</header>
+<main class="pt-10 md:pt-28 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto space-y-section-gap">
+<!-- Profile Header -->
+<section class="flex flex-col items-center text-center">
+<div class="relative w-32 h-32 rounded-full overflow-hidden mb-6 shadow-[0_10px_30px_rgba(139,92,246,0.12)] border-2 border-surface-container-low">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A high-quality, professional headshot of a person looking confident, brightly lit against a clean, modern white background. The image should exude a premium, corporate aesthetic suitable for an upscale platform." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-2">Ebrahim Jp</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">ibrahimjp630@gmail.com</p>
+</section>
+<!-- Bento Grid Sections -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Personal Info -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(31,41,55,0.05)] border border-surface-variant transition-transform hover:-translate-y-1 duration-300">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="person_outline">person_outline</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Personal Info</h2>
+</div>
+<div class="space-y-4">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block mb-1">Full Name</label>
+<p class="font-body-md text-body-md text-on-surface">Ebrahim Jp</p>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block mb-1">Phone</label>
+<p class="font-body-md text-body-md text-on-surface">+1 (555) 123-4567</p>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block mb-1">Location</label>
+<p class="font-body-md text-body-md text-on-surface">Ahmedabad, Gujarat</p>
+</div>
+</div>
+</div>
+<!-- Payment Methods -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(31,41,55,0.05)] border border-surface-variant transition-transform hover:-translate-y-1 duration-300">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="credit_card">credit_card</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Payment Methods</h2>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:opacity-80 transition-opacity">Add New</button>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 rounded-lg border border-surface-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_balance_wallet">account_balance_wallet</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface">Visa ending in 4242</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Expires 12/25</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary-container bg-surface-container px-2 py-1 rounded">Default</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg border border-surface-variant opacity-70">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_balance_wallet">account_balance_wallet</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface">Mastercard ending in 8899</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Expires 08/24</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Settings -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(31,41,55,0.05)] border border-surface-variant transition-transform hover:-translate-y-1 duration-300">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Notification Settings</h2>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body-md text-body-md text-on-surface">Event Reminders</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Get notified 24h before event</p>
+</div>
+<div class="w-11 h-6 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full transition-transform"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body-md text-body-md text-on-surface">Promotional Offers</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Receive curated event deals</p>
+</div>
+<div class="w-11 h-6 bg-surface-variant rounded-full relative cursor-pointer">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Preferences -->
+<div class="relative bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(31,41,55,0.05)] border border-surface-variant overflow-hidden group">
+<!-- AI Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+<div class="flex items-center gap-3 mb-6 relative z-10">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">AI Preferences</h2>
+</div>
+<div class="space-y-4 relative z-10">
+<p class="font-body-md text-body-md text-on-surface-variant">Customize how EventBook's AI curates your experience.</p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="px-3 py-1 bg-[#EDE9FE] text-primary font-label-sm text-label-sm rounded-full">Tech Conferences</span>
+<span class="px-3 py-1 bg-[#EDE9FE] text-primary font-label-sm text-label-sm rounded-full">Networking Events</span>
+<span class="px-3 py-1 bg-[#EDE9FE] text-primary font-label-sm text-label-sm rounded-full">Startup Mixers</span>
+</div>
+<button class="mt-4 w-full py-2 px-4 border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary/5 transition-colors">Edit Preferences</button>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col md:flex-row gap-4 justify-center items-center pt-8">
+<button class="bg-gradient-primary text-on-primary font-label-md text-label-md py-3 px-8 rounded-lg shadow-[0_10px_30px_rgba(139,92,246,0.12)] hover:-translate-y-0.5 transition-transform w-full md:w-auto">Save Changes</button>
+<button class="text-error font-label-md text-label-md py-3 px-8 hover:bg-error/5 rounded-lg transition-colors w-full md:w-auto">Sign Out</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(31,41,55,0.05)] flex justify-around items-center h-20 pb-safe px-4 w-full md:hidden">
+<!-- Home -->
+<div class="hover:bg-primary/5 transition-colors active:scale-90 duration-200 flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim p-2 rounded-lg cursor-pointer flex-1">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<!-- Explore -->
+<div class="hover:bg-primary/5 transition-colors active:scale-90 duration-200 flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim p-2 rounded-lg cursor-pointer flex-1">
+<span class="material-symbols-outlined mb-1" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</div>
+<!-- Bookings -->
+<div class="hover:bg-primary/5 transition-colors active:scale-90 duration-200 flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim p-2 rounded-lg cursor-pointer flex-1">
+<span class="material-symbols-outlined mb-1" data-icon="confirmation_number">confirmation_number</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</div>
+<!-- Profile (Active) -->
+<div class="hover:bg-primary/5 transition-colors active:scale-90 duration-200 flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-semibold p-2 rounded-lg cursor-pointer flex-1">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+</body></html>

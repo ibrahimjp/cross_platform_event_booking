@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Recommendations - EventBook</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#fffbff",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container": "#e6eeff",
+                        "surface-variant": "#d9e3f6",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#5c5f60",
+                        "on-surface-variant": "#494454",
+                        "on-primary-fixed": "#23005c",
+                        "secondary-fixed-dim": "#c5c7c8",
+                        "surface-container-high": "#dee9fc",
+                        "primary-fixed": "#e9ddff",
+                        "outline-variant": "#cbc3d7",
+                        "surface-container-low": "#eff4ff",
+                        "on-background": "#121c2a",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-container": "#626566",
+                        "inverse-primary": "#d0bcff",
+                        "on-tertiary-fixed": "#2c1700",
+                        "surface-container-highest": "#d9e3f6",
+                        "primary": "#6b38d4",
+                        "tertiary-container": "#a76500",
+                        "background": "#f8f9ff",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "surface-tint": "#6d3bd7",
+                        "secondary-container": "#e1e3e4",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb869",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdcbb",
+                        "on-surface": "#121c2a",
+                        "on-error-container": "#93000a",
+                        "outline": "#7b7486",
+                        "on-secondary-fixed": "#191c1d",
+                        "on-primary-fixed-variant": "#5516be",
+                        "surface-bright": "#f8f9ff",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#454748",
+                        "primary-container": "#8455ef",
+                        "secondary-fixed": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#855000",
+                        "inverse-surface": "#27313f",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d0dbed"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max-width": "1280px",
+                        "section-gap": "80px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full max-w-container-max-width mx-auto">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">EventBook</h1>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined">smart_toy</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
+<div class="mb-gutter text-center md:text-left">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full mb-4">
+<span class="material-symbols-outlined text-primary text-[16px]">auto_awesome</span>
+<span class="font-label-md text-label-md text-primary">AI Curated for You</span>
+</div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">Top Recommendations</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-2xl">Based on your recent interest in tech innovation and networking events.</p>
+</div>
+<!-- Bento Grid / Immersive Card Stack -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Card 1 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(31,41,55,0.05)] hover:shadow-[0_10px_30px_rgba(139,92,246,0.12)] transition-shadow duration-300 overflow-hidden flex flex-col group">
+<div class="relative h-64 w-full overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A highly detailed photograph of a modern, sleek tech conference auditorium. The lighting is moody with bright, futuristic neon purple and blue spotlights cutting through a light haze. A large, abstract geometric display is visible on the main stage. The atmosphere is energetic, innovative, and premium, perfectly matching a high-end corporate event aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDm0L8hVYY49t8qDMHkFWXjmkc45sxg6tll-CW3CYnYdHuEbYqxY9ADPxFGW_4hIyhEY6D6fh_8J_7lRnRGg7Ez6fCt16EZB6bn-XRzpbrbGM2U-kIFC4RpxiZTjstCGvtbPNTNuT2r5Kuo3nMV3YAEJ1OKwvPxvrxxtAgYvMd9adYyTR9OKhGbXfxleinExuiDR1Xbr4K8mXxO5WOONaLL_ZGz3DrvIU9wY7evoX1-YlxZ--4ZzRyI')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+<div>
+<span class="px-2 py-1 bg-surface/20 backdrop-blur-md rounded text-on-primary font-label-sm text-label-sm mb-2 inline-block">Tomorrow, 9:00 AM</span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Global Web3 Summit 2024</h3>
+</div>
+</div>
+</div>
+<div class="p-gutter flex flex-col flex-grow">
+<div class="flex items-start gap-3 mb-4 p-4 bg-primary/5 border border-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">lightbulb</span>
+<div>
+<h4 class="font-label-md text-label-md text-primary mb-1">Why we recommend this</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">You recently attended two blockchain mixers. This summit features three keynote speakers from your followed network, making it highly relevant to your career trajectory.</p>
+</div>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/30 flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Moscone Center</span>
+<button class="px-6 py-2 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-xl font-label-md text-label-md hover:shadow-lg transition-all">Book Now</button>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(31,41,55,0.05)] hover:shadow-[0_10px_30px_rgba(139,92,246,0.12)] transition-shadow duration-300 overflow-hidden flex flex-col group">
+<div class="relative h-64 w-full overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="An elegant, minimalist art gallery space hosting a design networking mixer. Soft, diffused white natural light pours in from large windows, illuminating crisp white walls and sleek modern furniture. Attendees are blurred in the background. The mood is sophisticated, bright, and professional, aligning with a premium, high-definition white UI style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_hrEquj5fsgxKPFBsJeq4UVzLk-sZqnKwxZOvlVvhATywzfzm17RuS7CkZmB0xkQHzzhqiYJt-UEHxIQmQ_NIUDm8oPUJPhyNiEEiQCJDZw4drLdv_LdYscdfmv74awdOI7OMW-CCAqrP3ONFN6SDprczHzD2hlKMUPPUR7CQgWMfXQFK93cjCSv75bgrW2es_3_GeozzXEu8iQwrYxS0BrYx7rShgX3IcIfvme-eUJ0E3xAAmcsW')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+<div>
+<span class="px-2 py-1 bg-surface/20 backdrop-blur-md rounded text-on-primary font-label-sm text-label-sm mb-2 inline-block">Oct 15, 6:00 PM</span>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Design Leaders Mixer</h3>
+</div>
+</div>
+</div>
+<div class="p-gutter flex flex-col flex-grow">
+<div class="flex items-start gap-3 mb-4 p-4 bg-primary/5 border border-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">lightbulb</span>
+<div>
+<h4 class="font-label-md text-label-md text-primary mb-1">Why we recommend this</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Your profile indicates an interest in UI/UX leadership. This exclusive mixer aligns perfectly with your goal to connect with senior design directors in your city.</p>
+</div>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/30 flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">The Modern Art Space</span>
+<button class="px-6 py-2 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-xl font-label-md text-label-md hover:shadow-lg transition-all">Book Now</button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(31,41,55,0.05)]">
+<div class="flex justify-around items-center h-20 pb-safe px-4 w-full">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-primary/5 transition-colors active:scale-90 duration-200 w-16 h-16 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- Active Tab: Explore -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-semibold hover:bg-primary/5 transition-colors active:scale-90 duration-200 w-16 h-16 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-primary/5 transition-colors active:scale-90 duration-200 w-16 h-16 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">confirmation_number</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-primary/5 transition-colors active:scale-90 duration-200 w-16 h-16 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

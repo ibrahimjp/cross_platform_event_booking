@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EventBook - Explore Events</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#fffbff",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container": "#e6eeff",
+                        "surface-variant": "#d9e3f6",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#5c5f60",
+                        "on-surface-variant": "#494454",
+                        "on-primary-fixed": "#23005c",
+                        "secondary-fixed-dim": "#c5c7c8",
+                        "surface-container-high": "#dee9fc",
+                        "primary-fixed": "#e9ddff",
+                        "outline-variant": "#cbc3d7",
+                        "surface-container-low": "#eff4ff",
+                        "on-background": "#121c2a",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-container": "#626566",
+                        "inverse-primary": "#d0bcff",
+                        "on-tertiary-fixed": "#2c1700",
+                        "surface-container-highest": "#d9e3f6",
+                        "primary": "#6b38d4",
+                        "tertiary-container": "#a76500",
+                        "background": "#f8f9ff",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "surface-tint": "#6d3bd7",
+                        "secondary-container": "#e1e3e4",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb869",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdcbb",
+                        "on-surface": "#121c2a",
+                        "on-error-container": "#93000a",
+                        "outline": "#7b7486",
+                        "on-secondary-fixed": "#191c1d",
+                        "on-primary-fixed-variant": "#5516be",
+                        "surface-bright": "#f8f9ff",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#454748",
+                        "primary-container": "#8455ef",
+                        "secondary-fixed": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#855000",
+                        "inverse-surface": "#27313f",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d0dbed"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max-width": "1280px",
+                        "section-gap": "80px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F9FAFB; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .ai-gradient-text {
+            background: linear-gradient(to right, #8B5CF6, #6D28D9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .ai-gradient-bg {
+            background: linear-gradient(to right, #8B5CF6, #6D28D9);
+        }
+        .card-shadow {
+            box-shadow: 0px 4px 20px rgba(31, 41, 55, 0.05);
+        }
+        .card-shadow-hover:hover {
+            box-shadow: 0px 10px 30px rgba(139, 92, 246, 0.12);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface min-h-screen flex flex-col pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl shadow-sm">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full max-w-container-max-width mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">EventBook</div>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity font-label-md text-label-md" href="#">Home</a>
+<a class="text-primary font-bold hover:opacity-80 transition-opacity font-label-md text-label-md" href="#">Explore</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity font-label-md text-label-md" href="#">Bookings</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity font-label-md text-label-md" href="#">Profile</a>
+</nav>
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-24 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto w-full">
+<!-- Search & Filters Header -->
+<section class="mb-12">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6">Explore Events</h1>
+<!-- Search Bar -->
+<div class="relative w-full max-w-2xl mb-6">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full pl-12 pr-4 py-4 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 shadow-sm font-body-lg text-body-lg text-on-surface placeholder-on-surface-variant" placeholder="Search events, venues, or artists..." type="text"/>
+<button class="absolute inset-y-2 right-2 px-4 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">Search</button>
+</div>
+<!-- Filter Chips -->
+<div class="flex flex-wrap gap-3">
+<button class="px-4 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center gap-2">
+                    Today
+                </button>
+<button class="px-4 py-2 rounded-full border border-primary bg-primary/5 text-primary font-label-md text-label-md hover:bg-primary/10 transition-colors flex items-center gap-2">
+                    This Weekend
+                    <span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center gap-2">
+                    Music
+                </button>
+<button class="px-4 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center gap-2">
+                    Tech &amp; Innovation
+                </button>
+<button class="px-4 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+                    More Filters
+                </button>
+</div>
+</section>
+<!-- Events Grid View -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Event Card 1 -->
+<div class="bg-surface-container-lowest rounded-2xl card-shadow card-shadow-hover overflow-hidden border border-outline-variant/30 flex flex-col">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="A high-quality, modern photograph of a lively outdoor music festival stage during sunset. The lighting is warm and vibrant, with soft violet hues reflecting the 'High-Definition White' aesthetic of the platform. The crowd is silhouetted against a brilliant sky, conveying a premium and energetic mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJYxiQEiiHi6_cvN25f3p82kykR00TvZZQn6PAU6I28y6jWDmV3O5222l1FSGTaXaxu6Wsrah6ub9zYkjgNgTzdz7hldrx2CkuXDo9FPiSisRuvQwCGusWCWCwEQ1bQaHMh7XQmFN5aCDDCtkrt5lmJ_yNBrqXnUV6VnlapyLq1nZ4Jj18eDCTa_1X6WO20ivbVc3LLcC1yYU0EghyOeM166EwT8JyM_H-J6fHFn4kiWSLF-ynbSLX"/>
+<div class="absolute top-4 right-4 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm font-bold text-primary shadow-sm">
+                        Music
+                    </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="text-primary font-label-md text-label-md mb-2">SAT, OCT 14 • 8:00 PM</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 line-clamp-2">Neon Nights: Electronic Music Festival</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 line-clamp-2">Experience the biggest electronic music gathering of the year with top international DJs and immersive light shows.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="font-body-sm text-body-sm">Downtown Arena</span>
+</div>
+<div class="font-label-md text-label-md font-bold text-on-surface">From $85</div>
+</div>
+</div>
+</div>
+<!-- Event Card 2 -->
+<div class="bg-surface-container-lowest rounded-2xl card-shadow card-shadow-hover overflow-hidden border border-outline-variant/30 flex flex-col">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="A sleek, modern tech conference setting with a large glowing screen displaying abstract geometric data patterns. High-key white lighting dominates the space, punctuated by deep violet and primary blue accents. Professionals in sharp modern attire are engaged in discussion, creating a sophisticated and intelligent atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEAnqz3viCHVmMMKMfSwA09R5ybo7G4AIOwtjK9fcSpo2qJHoX3cOrLKJIxCMDpyoyfkuFTsmSwwRvcz-vfhTZ6xYblTRQs7j7YjF6MPEKxQibMGyvohDcf62Ia9S28Tuu3de_08aYjfIbeGzgxLdx7q_-JQWSGRbyw3Vdf1wZdCKDrgE13p22cJx8GLXU0TVBcK6M0hh2gGoqsvVk59vtdGvQAZnK07tyESu44as7imoxSRo50tpX"/>
+<div class="absolute top-4 right-4 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm font-bold text-primary shadow-sm">
+                        Tech
+                    </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="text-primary font-label-md text-label-md mb-2">TUE, OCT 17 • 9:00 AM</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 line-clamp-2">FutureFlow Tech Summit 2024</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 line-clamp-2">Join industry leaders discussing AI, Web3, and the future of digital product design.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="font-body-sm text-body-sm">Innovation Center</span>
+</div>
+<div class="font-label-md text-label-md font-bold text-on-surface">From $299</div>
+</div>
+</div>
+</div>
+<!-- Event Card 3 -->
+<div class="bg-surface-container-lowest rounded-2xl card-shadow card-shadow-hover overflow-hidden border border-outline-variant/30 flex flex-col">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="An elegant, modern art gallery space featuring minimalist sculptures and large abstract paintings. The room is bathed in clean, pristine white light from large frosted windows, emphasizing the 'Modern Corporate' aesthetic. A few well-dressed attendees observe the art quietly, conveying exclusivity and high-end curation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADx2V4CYCYFulF248A7uOUUvVJNrkJG1ySVD2lgjtSO_ihKJNwPIXvN52B940cIrMHJ80yBoU8P2klr_hSPdz1NEmA6f-uVVCQpkWQ9gYW1kc-6pUtfrFIzp1AYFQghmBtxKAMt-3CbmjA3L6Wgax4m6IO5Cfl7uieCgTA7fuT5fhJGDyb8yFAWK7viOMnA36AMjhZUZVtTQ__5ATFrj9YHXVqKaYPAma8GNrIY6Mbek4T7rkBSDxW"/>
+<div class="absolute top-4 right-4 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm font-bold text-primary shadow-sm">
+                        Art &amp; Design
+                    </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="text-primary font-label-md text-label-md mb-2">FRI, OCT 20 • 6:30 PM</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 line-clamp-2">Modernist Perspectives Exhibition Opening</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 line-clamp-2">An exclusive preview of the new contemporary art installation featuring local and international artists.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="font-body-sm text-body-sm">Gallery Blanc</span>
+</div>
+<div class="font-label-md text-label-md font-bold text-on-surface">Free RSVP</div>
+</div>
+</div>
+</div>
+<!-- Event Card 4 -->
+<div class="bg-surface-container-lowest rounded-2xl card-shadow card-shadow-hover overflow-hidden border border-outline-variant/30 flex flex-col">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="A beautifully plated gourmet dish in a highly styled, minimalist restaurant interior. The aesthetic is clean and high-definition, with crisp white tablecloths and subtle ambient violet lighting hinting at a modern, premium dining experience. The mood is refined and appetizing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8NbXQFPCOrYb7Dx058OP7UlFyo1TT2pplWhLOQe65MaTP-hk5zpFzdB-AX0cWu2q6g7zP6h3pn9nMrMVOffpYtIUD2HotYUwYfv8c1bUdQHZnAR5ojZwQx8dI6NUD_5psAcIAyY8ZKYsfe6BB0uFoZnNyV0_xq6ObuwutXDrLC9YtJ7dXiHogvfracVaw6XVOVZoSbcC1-Qw8Py9PcS4HII2ciZsu0QaBY2Qv6q_rarkK8fXHaCRw"/>
+<div class="absolute top-4 right-4 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm font-bold text-primary shadow-sm">
+                        Food &amp; Drink
+                    </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="text-primary font-label-md text-label-md mb-2">SUN, OCT 22 • 11:00 AM</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 line-clamp-2">Culinary Masterclass &amp; Tasting</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 line-clamp-2">Learn advanced plating techniques and flavor pairing from Michelin-starred Chef Dubois.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="font-body-sm text-body-sm">The Atelier Kitchen</span>
+</div>
+<div class="font-label-md text-label-md font-bold text-on-surface">From $150</div>
+</div>
+</div>
+</div>
+<!-- AI Recommendation Card (Bento Style) -->
+<div class="bg-gradient-to-br from-primary-fixed to-surface-container-highest rounded-2xl card-shadow card-shadow-hover overflow-hidden border border-primary/20 flex flex-col relative md:col-span-2 lg:col-span-2">
+<!-- Abstract BG -->
+<div class="absolute right-0 top-0 w-1/2 h-full opacity-30 pointer-events-none">
+<div class="bg-cover bg-center w-full h-full blur-xl" data-alt="Abstract flowing gradient background with soft violet and pristine white tones, reflecting technological intelligence and a high-end AI aesthetic. Soft, organic rounded shapes blend seamlessly in a bright, modern light-mode setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCaTFhSAwAebA-CGhxUD5UlZLrH43iKJq20leDM7RjCqHXxFV6gzSXKAxI_sZEzibWiHTUOu5s8PuqisnTqTbseiXi9X4v4XkLbYkAv-zHKLPUdrYQXKvuN7YmplgL5Vf2Hu1CJ5a27J0lb6tab0Gl-YkYJgYIKUjldWJb3NzobmcfdKFpgmaO1MWSJK2LB0ZwhjZWnBDwKYYg7cpeBVYnGNpbrz9OPHNDaTOOtG1fY4R2UEt1IhEMj')"></div>
+</div>
+<div class="p-8 flex flex-col h-full relative z-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">AI Curated For You</span>
+</div>
+<h3 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-4 leading-tight">Because you enjoyed 'Design Systems Workshop'</h3>
+<div class="mt-auto pt-6 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+<div class="flex-grow">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">UX Leadership Panel &amp; Mixer</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Tomorrow • 6:00 PM • The Greenhouse</p>
+</div>
+<button class="whitespace-nowrap px-6 py-3 bg-primary text-on-primary rounded-xl font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm flex items-center gap-2">
+                            Book Now
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Load More -->
+<div class="flex justify-center mt-12 mb-12">
+<button class="px-8 py-3 rounded-xl border border-outline-variant bg-transparent text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors">
+                Load More Events
+            </button>
+</div>
+</main>
+<!-- AI Chatbot FAB (Contextual) -->
+<button class="fixed bottom-24 md:bottom-8 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-[0px_10px_30px_rgba(139,92,246,0.3)] flex items-center justify-center hover:scale-105 transition-transform z-40">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl shadow-[0_-4px_20px_rgba(31,41,55,0.05)]">
+<div class="flex justify-around items-center h-20 pb-safe px-4 w-full">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-primary/5 transition-colors active:scale-90 duration-200 p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-semibold hover:bg-primary/5 transition-colors active:scale-90 duration-200 p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-primary/5 transition-colors active:scale-90 duration-200 p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1">confirmation_number</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-primary/5 transition-colors active:scale-90 duration-200 p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

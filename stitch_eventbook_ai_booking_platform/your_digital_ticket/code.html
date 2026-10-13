@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Ticket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#fffbff",
+                    "primary-fixed-dim": "#d0bcff",
+                    "surface-container": "#e6eeff",
+                    "surface-variant": "#d9e3f6",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#5c5f60",
+                    "on-surface-variant": "#494454",
+                    "on-primary-fixed": "#23005c",
+                    "secondary-fixed-dim": "#c5c7c8",
+                    "surface-container-high": "#dee9fc",
+                    "primary-fixed": "#e9ddff",
+                    "outline-variant": "#cbc3d7",
+                    "surface-container-low": "#eff4ff",
+                    "on-background": "#121c2a",
+                    "on-tertiary-container": "#fffbff",
+                    "on-secondary-container": "#626566",
+                    "inverse-primary": "#d0bcff",
+                    "on-tertiary-fixed": "#2c1700",
+                    "surface-container-highest": "#d9e3f6",
+                    "primary": "#6b38d4",
+                    "tertiary-container": "#a76500",
+                    "background": "#f8f9ff",
+                    "error-container": "#ffdad6",
+                    "surface": "#f8f9ff",
+                    "surface-tint": "#6d3bd7",
+                    "secondary-container": "#e1e3e4",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb869",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdcbb",
+                    "on-surface": "#121c2a",
+                    "on-error-container": "#93000a",
+                    "outline": "#7b7486",
+                    "on-secondary-fixed": "#191c1d",
+                    "on-primary-fixed-variant": "#5516be",
+                    "surface-bright": "#f8f9ff",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#454748",
+                    "primary-container": "#8455ef",
+                    "secondary-fixed": "#e1e3e4",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#855000",
+                    "inverse-surface": "#27313f",
+                    "on-tertiary-fixed-variant": "#673d00",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#d0dbed"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max-width": "1280px",
+                    "section-gap": "80px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "display-lg-mobile": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .ticket-shape {
+            mask-image: radial-gradient(circle at 0px 60%, transparent 12px, black 13px),
+                        radial-gradient(circle at 100% 60%, transparent 12px, black 13px);
+            mask-composite: intersect;
+            -webkit-mask-composite: source-in;
+            background-color: white;
+        }
+        @media (max-width: 768px) {
+            .ticket-shape {
+                mask-image: radial-gradient(circle at -4px 60%, transparent 16px, black 17px),
+                            radial-gradient(circle at calc(100% + 4px) 60%, transparent 16px, black 17px);
+                -webkit-mask-image: -webkit-radial-gradient(circle at -4px 60%, transparent 16px, black 17px),
+                                    -webkit-radial-gradient(circle at calc(100% + 4px) 60%, transparent 16px, black 17px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen text-on-background font-body-md antialiased pb-safe">
+<!-- Top Navigation (Mobile Hidden, Web Visible) -->
+<header class="hidden md:flex bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-outline-variant/30 fixed top-0 w-full z-50 shadow-sm">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full max-w-container-max-width mx-auto">
+<div class="flex items-center gap-4">
+<button aria-label="Menu" class="text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">EventBook</h1>
+</div>
+<button aria-label="AI Assistant" class="text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-8 md:pt-24 pb-24 md:pb-12 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto flex flex-col items-center justify-center min-h-screen">
+<!-- Ticket Container -->
+<div class="w-full max-w-[400px] flex flex-col gap-6">
+<!-- Header/Back Action -->
+<div class="flex items-center justify-between w-full mb-2">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+<span class="font-label-md text-label-md">Back to Bookings</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-variant/50">
+<span class="material-symbols-outlined text-[20px]" data-icon="share">share</span>
+</button>
+</div>
+<!-- The Ticket -->
+<div class="relative w-full rounded-2xl shadow-[0_10px_40px_rgba(139,92,246,0.15)] ticket-shape border border-surface-variant/50 overflow-hidden">
+<!-- Event Image Header -->
+<div class="h-40 w-full bg-surface-variant relative">
+<img alt="Event Cover" class="w-full h-full object-cover absolute inset-0" data-alt="A highly atmospheric, cinematic shot of a modern concert stage viewed from the front row. The stage is bathed in deep violet and electric blue lighting, creating a premium, high-energy light-mode aesthetic. Silhouettes of performers are barely visible against the bright, futuristic LED screens. The mood is exhilarating and exclusive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNLxYQXdKOEBvPqQ1ClynEMUSf2rHPn8GMNPIP-ONm2XIfFIJbkb1tIKPN_t5svfC2thjgrVKj-9qayDJKyHLQ4jia7Zm6-JafddrJ2tUtxWIoLMVhX6EuajMt6dzQHc0xqGNaGHeOCQLipT3EwDxe2Qf-0h04kP8sxKvJxkz8F9M5io-0UoVljbQJ91ZOnMU9JcKqy-J66n3hp5GM4H3oEsLCIIsUGPPWkk_9uc9Vgw2jemz_6wD6"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<span class="font-label-sm text-label-sm bg-primary/90 px-2 py-1 rounded backdrop-blur-md mb-1 inline-block">VIP PASS</span>
+<h2 class="font-headline-sm text-headline-sm text-white">Neon Nights Festival</h2>
+</div>
+</div>
+<!-- Ticket Details (Upper Section) -->
+<div class="p-6 bg-surface-container-lowest">
+<div class="flex justify-between items-start mb-6">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Date &amp; Time</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Oct 24, 2024 • 8:00 PM</span>
+</div>
+<div class="flex flex-col gap-1 text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Venue</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">The Grand Hall</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">San Francisco, CA</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 p-4 bg-surface-container-low rounded-xl mb-4 border border-outline-variant/20">
+<div class="flex flex-col items-center justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-1">Gate</span>
+<span class="font-headline-md text-headline-md text-primary">A2</span>
+</div>
+<div class="flex flex-col items-center justify-center border-l border-r border-outline-variant/30">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-1">Row</span>
+<span class="font-headline-md text-headline-md text-on-surface">14</span>
+</div>
+<div class="flex flex-col items-center justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-1">Seat</span>
+<span class="font-headline-md text-headline-md text-on-surface">104</span>
+</div>
+</div>
+</div>
+<!-- Perforated Line -->
+<div class="relative h-[2px] bg-transparent">
+<!-- The line itself -->
+<div class="absolute inset-0 border-t-2 border-dashed border-outline-variant/50 w-full" style="top: -1px;"></div>
+</div>
+<!-- QR Code Section (Lower Section) -->
+<div class="p-6 bg-surface-container-lowest flex flex-col items-center justify-center">
+<div class="font-body-sm text-body-sm text-on-surface-variant mb-4 text-center">Scan at the entrance</div>
+<div class="p-4 bg-white rounded-xl border border-surface-variant shadow-sm mb-4">
+<!-- Placeholder for QR Code, using a patterned div for visual structure -->
+<div class="w-48 h-48 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxyZWN0IHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IiNmZmYiLz48cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjNmIzOGQ0Ii8+PC9zdmc+')] bg-repeat opacity-80 mix-blend-multiply flex items-center justify-center border-4 border-white">
+<div class="bg-white p-2">
+<span class="material-symbols-outlined text-[64px] text-primary" data-icon="qr_code_2">qr_code_2</span>
+</div>
+</div>
+</div>
+<div class="font-label-md text-label-md text-on-surface tracking-widest bg-surface-variant/30 px-4 py-2 rounded-lg">#EVT-8923-441A</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col gap-3 mt-4 w-full">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-md text-label-md py-4 rounded-xl shadow-[0_4px_20px_rgba(139,92,246,0.2)] hover:shadow-[0_8px_30px_rgba(139,92,246,0.3)] hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+                    Add to Apple Wallet
+                </button>
+<button class="w-full bg-surface-container-lowest text-primary font-label-md text-label-md py-4 rounded-xl border border-primary/20 hover:bg-primary/5 transition-colors duration-200">
+                    Download PDF
+                </button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Visible, Web Hidden) - Suppressed for transactional/focused view -->
+<!-- Navigation is intentionally omitted here based on the instructions: "Task-Focused: Any sub-page featuring a 'Close' or 'Back' action that implies a temporary departure from the main navigation flow." This is a specific ticket view. -->
+</body></html>

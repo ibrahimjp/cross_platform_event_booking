@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EventBook - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#fffbff",
+                      "primary-fixed-dim": "#d0bcff",
+                      "surface-container": "#e6eeff",
+                      "surface-variant": "#d9e3f6",
+                      "on-secondary": "#ffffff",
+                      "secondary": "#5c5f60",
+                      "on-surface-variant": "#494454",
+                      "on-primary-fixed": "#23005c",
+                      "secondary-fixed-dim": "#c5c7c8",
+                      "surface-container-high": "#dee9fc",
+                      "primary-fixed": "#e9ddff",
+                      "outline-variant": "#cbc3d7",
+                      "surface-container-low": "#eff4ff",
+                      "on-background": "#121c2a",
+                      "on-tertiary-container": "#fffbff",
+                      "on-secondary-container": "#626566",
+                      "inverse-primary": "#d0bcff",
+                      "on-tertiary-fixed": "#2c1700",
+                      "surface-container-highest": "#d9e3f6",
+                      "primary": "#6b38d4",
+                      "tertiary-container": "#a76500",
+                      "background": "#f8f9ff",
+                      "error-container": "#ffdad6",
+                      "surface": "#f8f9ff",
+                      "surface-tint": "#6d3bd7",
+                      "secondary-container": "#e1e3e4",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb869",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed": "#ffdcbb",
+                      "on-surface": "#121c2a",
+                      "on-error-container": "#93000a",
+                      "outline": "#7b7486",
+                      "on-secondary-fixed": "#191c1d",
+                      "on-primary-fixed-variant": "#5516be",
+                      "surface-bright": "#f8f9ff",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#454748",
+                      "primary-container": "#8455ef",
+                      "secondary-fixed": "#e1e3e4",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary": "#855000",
+                      "inverse-surface": "#27313f",
+                      "on-tertiary-fixed-variant": "#673d00",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-error": "#ffffff",
+                      "surface-dim": "#d0dbed"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "2xl": "1rem",
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max-width": "1280px",
+                      "section-gap": "80px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "20px",
+                      "unit": "8px",
+                      "safe": "env(safe-area-inset-bottom)"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "14px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #121c2a;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Hide scrollbar for horizontal scrolling but keep functionality */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="pb-24 pt-16 md:pb-0 font-body-md text-body-md bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl shadow-sm border-b-0">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full max-w-container-max-width mx-auto">
+<button class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">
+                EventBook
+            </h1>
+<button class="text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</button>
+</div>
+</header>
+<main class="w-full max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop pt-unit">
+<!-- Hero / AI Recommendations -->
+<section class="mt-8 mb-section-gap">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h2 class="font-headline-sm text-headline-sm">AI Recommendations for You</h2>
+</div>
+<div class="relative rounded-2xl overflow-hidden bg-white shadow-[0_4px_20px_rgba(31,41,55,0.05)] border border-surface-container-highest">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+<div class="p-6 md:p-8 flex flex-col md:flex-row gap-6 md:items-center">
+<div class="w-full md:w-1/3 aspect-[4/3] rounded-xl overflow-hidden shadow-sm relative">
+<img class="w-full h-full object-cover" data-alt="A vibrant outdoor music festival crowd illuminated by dramatic purple and blue stage lights at twilight. The scene is energetic and high-end, focusing on a clear, premium photography style typical of modern tech platforms. The overall mood is exciting and professionally curated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVp2Q4FSdQLudDZNY_dQCRzzvHqbj8fPAnyXpbSjARdEWCUF6nJHrgaUPBIUSp6bt1_xGdlKg1CV1Bw4mitsrXSGzzu53VtNpSL9zkslUwrWenndhfzrMt6EiPF0tnn52J8uN7Mi8WCqnQG2RWMa68aQN5yqJmPA4aISj0JfH-jVu-UvPSMTL_NmbKrmn4Ll2IRg3szG0TquSFxFqqHYMZMpzZIIr2vpt3zM4aVFjLcDHDWZmcsV_z"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-primary font-label-sm text-label-sm shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">star</span>
+                            98% Match
+                        </div>
+</div>
+<div class="flex-1 flex flex-col gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-[#EDE9FE] text-primary px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider">Music</span>
+<span class="text-secondary font-body-sm text-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                                    This Friday, 8:00 PM
+                                </span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Sunburn Arena: Electronic Experience</h3>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">Based on your recent interest in electronic music and immersive audiovisual shows, we highly recommend this exclusive event in Mumbai.</p>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<button class="bg-gradient-to-r from-primary to-[#6D28D9] text-white px-6 py-3 rounded-xl font-label-md text-label-md shadow-sm hover:shadow-[0_10px_30px_rgba(139,92,246,0.12)] hover:-translate-y-0.5 transition-all active:scale-95 duration-200 flex items-center gap-2">
+                                Book Now
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="px-6 py-3 rounded-xl font-label-md text-label-md border border-outline-variant text-on-surface hover:bg-surface-container-low transition-colors active:scale-95 duration-200">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories (Horizontal Scroll) -->
+<section class="mb-section-gap">
+<h2 class="font-headline-sm text-headline-sm mb-4">Explore Categories</h2>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-4 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0">
+<button class="shrink-0 flex flex-col items-center gap-2 bg-primary text-white p-4 rounded-2xl w-24 shadow-[0_10px_30px_rgba(139,92,246,0.12)] transition-transform hover:-translate-y-1 active:scale-95">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">music_note</span>
+<span class="font-label-sm text-label-sm">Music</span>
+</button>
+<button class="shrink-0 flex flex-col items-center gap-2 bg-white text-on-surface-variant border border-surface-container-highest p-4 rounded-2xl w-24 shadow-[0_4px_20px_rgba(31,41,55,0.05)] transition-transform hover:-translate-y-1 active:scale-95">
+<span class="material-symbols-outlined text-3xl">festival</span>
+<span class="font-label-sm text-label-sm">Festivals</span>
+</button>
+<button class="shrink-0 flex flex-col items-center gap-2 bg-white text-on-surface-variant border border-surface-container-highest p-4 rounded-2xl w-24 shadow-[0_4px_20px_rgba(31,41,55,0.05)] transition-transform hover:-translate-y-1 active:scale-95">
+<span class="material-symbols-outlined text-3xl">theater_comedy</span>
+<span class="font-label-sm text-label-sm">Comedy</span>
+</button>
+<button class="shrink-0 flex flex-col items-center gap-2 bg-white text-on-surface-variant border border-surface-container-highest p-4 rounded-2xl w-24 shadow-[0_4px_20px_rgba(31,41,55,0.05)] transition-transform hover:-translate-y-1 active:scale-95">
+<span class="material-symbols-outlined text-3xl">sports_cricket</span>
+<span class="font-label-sm text-label-sm">Sports</span>
+</button>
+<button class="shrink-0 flex flex-col items-center gap-2 bg-white text-on-surface-variant border border-surface-container-highest p-4 rounded-2xl w-24 shadow-[0_4px_20px_rgba(31,41,55,0.05)] transition-transform hover:-translate-y-1 active:scale-95">
+<span class="material-symbols-outlined text-3xl">museum</span>
+<span class="font-label-sm text-label-sm">Cultural</span>
+</button>
+<button class="shrink-0 flex flex-col items-center gap-2 bg-white text-on-surface-variant border border-surface-container-highest p-4 rounded-2xl w-24 shadow-[0_4px_20px_rgba(31,41,55,0.05)] transition-transform hover:-translate-y-1 active:scale-95">
+<span class="material-symbols-outlined text-3xl">restaurant</span>
+<span class="font-label-sm text-label-sm">Food</span>
+</button>
+<button class="shrink-0 flex flex-col items-center gap-2 bg-white text-on-surface-variant border border-surface-container-highest p-4 rounded-2xl w-24 shadow-[0_4px_20px_rgba(31,41,55,0.05)] transition-transform hover:-translate-y-1 active:scale-95">
+<span class="material-symbols-outlined text-3xl">build</span>
+<span class="font-label-sm text-label-sm">Workshops</span>
+</button>
+</div>
+</section>
+<!-- Upcoming Garba Festivals -->
+<section class="mb-section-gap">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-sm text-headline-sm">Upcoming Garba Festivals</h2>
+<button class="text-primary font-label-md text-label-md hover:underline">View All</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Garba Event Card 1 -->
+<div class="bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(31,41,55,0.05)] flex flex-col group cursor-pointer hover:shadow-[0_10px_30px_rgba(139,92,246,0.12)] transition-shadow duration-300">
+<div class="h-48 w-full relative overflow-hidden bg-surface-container">
+<!-- Placeholder image for Garba event -->
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Vibrant garba night with people in traditional attire dancing in circles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF5-JeQYXGli7Ykcwq44keDp2FFkO6tEYyshTIBCfH0zxdcrSki5-lQGUjherozQxeHoAxOBlvhEeyDJ78avpj-VpSax_Rf0-PJ9IfGnzcyEIl-DLw0-7aSB92KvawwTO-MYJcKFOM1XY4VF9CqET7KuW8vgZAkMGLO2A6BFBI_aKrBnahF9JMnqvnyHY_CJDNrMOtrTdH1ktilLsPvScX4Vnmx1ASdtdlzU0gEYKFtMHZBS7wdzrH"/>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full p-2 text-secondary shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<span class="text-primary font-label-sm text-label-sm bg-primary/10 px-2 py-1 rounded">Festival</span>
+<span class="text-on-surface font-label-sm text-label-sm font-semibold">₹1,499</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-1 leading-tight line-clamp-1">United Way Garba</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-4 line-clamp-2">Experience the biggest Navratri celebration with traditional music, grand decorations, and thousands of dancers.</p>
+<div class="mt-auto flex items-center justify-between border-t border-surface-container-highest pt-4">
+<div class="flex items-center gap-1 text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>GMDC Ground, Ahmedabad</span>
+</div>
+<span class="text-secondary font-body-sm text-body-sm">Oct 15-24</span>
+</div>
+</div>
+</div>
+<!-- Garba Event Card 2 -->
+<div class="bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(31,41,55,0.05)] flex flex-col group cursor-pointer hover:shadow-[0_10px_30px_rgba(139,92,246,0.12)] transition-shadow duration-300">
+<div class="h-48 w-full relative overflow-hidden bg-surface-container">
+<!-- Placeholder image for Garba event -->
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Colorful dandiya sticks and festive atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7I7dL3ENwDQ8XkY_W1nDwh1g1mJev0WTOlzqSiEB6kTQUzFVXlrOebG6G4VpOIkugZE_q0SMOv0JjSu8ngunvzOcTwHjisv7m_TJJa9y3IwYVXwbhnq5LYE6O_XIi0V5gdg-jHD_rBh8HBNcTh98Ng0kwDgQYZZG0IVXVnFDLNzbXObWEMTmIcIVMNQcTQEECg9Pzw5fP0LPwToUe2O81OIOOxCW11F7KzsnyB1g20KJ0eSTIwyA6"/>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full p-2 text-secondary shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<span class="text-primary font-label-sm text-label-sm bg-primary/10 px-2 py-1 rounded">Festival</span>
+<span class="text-on-surface font-label-sm text-label-sm font-semibold">₹999</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-1 leading-tight line-clamp-1">Shankus Dandiya</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-4 line-clamp-2">A vibrant night of dandiya raas with live bands, authentic Gujarati cuisine, and non-stop entertainment.</p>
+<div class="mt-auto flex items-center justify-between border-t border-surface-container-highest pt-4">
+<div class="flex items-center gap-1 text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>Shankus Water Park, Ahmedabad</span>
+</div>
+<span class="text-secondary font-body-sm text-body-sm">Oct 15-24</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trending Events Feed -->
+<section class="mb-section-gap">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-sm text-headline-sm">Trending Now</h2>
+<button class="text-primary font-label-md text-label-md hover:underline">View All</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Event Card 1 -->
+<div class="bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(31,41,55,0.05)] flex flex-col group cursor-pointer hover:shadow-[0_10px_30px_rgba(139,92,246,0.12)] transition-shadow duration-300">
+<div class="h-48 w-full relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sleek, modern corporate networking event in a high-rise glass-walled venue overlooking a city skyline. Soft, diffused daylight filtering in, creating a high-end white aesthetic with subtle professional purple accents in the decor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD85uLhgtVA55IG1cSsALhjB0dwTWt8nSMfUKhilxH5RlEGXl45AHzMz0nbH3peH5OzFzTJZx8HhJx8kWhoVcrttaxB2BNJ2xyCsaA9U-o8wcVn2UWHE05CD3SE4AmKMD6XqaDEa3amvBoK5CE_ouZeINtibISwnbOYSMQw2h5N91Af-lfiGhpaVVq0BC-HNO-Hwc5SO-qYF90X21jzbTeMo_3a7K9dGO-LC1yTbI-p9KWIz2JSiJNY"/>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full p-2 text-secondary shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<span class="text-primary font-label-sm text-label-sm bg-primary/10 px-2 py-1 rounded">Networking</span>
+<span class="text-on-surface font-label-sm text-label-sm font-semibold">₹3,499</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-1 leading-tight line-clamp-1">Global Tech Leaders Summit</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-4 line-clamp-2">Connect with industry pioneers in a premium setting. Includes keynote speeches and curated networking sessions.</p>
+<div class="mt-auto flex items-center justify-between border-t border-surface-container-highest pt-4">
+<div class="flex items-center gap-1 text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>BKC, Mumbai</span>
+</div>
+<span class="text-secondary font-body-sm text-body-sm">Sat, 10 AM</span>
+</div>
+</div>
+</div>
+<!-- Event Card 2 -->
+<div class="bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(31,41,55,0.05)] flex flex-col group cursor-pointer hover:shadow-[0_10px_30px_rgba(139,92,246,0.12)] transition-shadow duration-300">
+<div class="h-48 w-full relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An elegant artisanal food tasting setup on a long, clean white marble table. Gourmet small plates beautifully plated. High-end, bright food photography style with soft natural lighting and sophisticated composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiGa1gAqCgoFP2WaJ8KALXqiiESJNUvrwa5nquyco9yMPSSgrknDCof4I48Si6DebSgjkuXnHuu4_lCqDcA4AwX8rkYbp5J-u4UnZ_nRIqmmZf1tONeGqmOm2J62nriqIkrMSVFQAmKvBVa7bLs9cJLnLYCUY7hSsOj2bEyR_ai3CH9j-1wpMTCt5Q_QqT5kzqhiIF2YDuEE9_HwuoBC9stTtsByaqUsun7zecZcOuhI78M4GuCiv6"/>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full p-2 text-secondary shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<span class="text-primary font-label-sm text-label-sm bg-primary/10 px-2 py-1 rounded">Food</span>
+<span class="text-on-surface font-label-sm text-label-sm font-semibold">₹4,999</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-1 leading-tight line-clamp-1">Artisanal Culinary Tasting</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-4 line-clamp-2">A curated 7-course tasting menu prepared by award-winning chefs, focusing on sustainable local ingredients.</p>
+<div class="mt-auto flex items-center justify-between border-t border-surface-container-highest pt-4">
+<div class="flex items-center gap-1 text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>Indiranagar, Bangalore</span>
+</div>
+<span class="text-secondary font-body-sm text-body-sm">Sun, 7 PM</span>
+</div>
+</div>
+</div>
+<!-- Event Card 3 -->
+<div class="bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(31,41,55,0.05)] flex flex-col group cursor-pointer hover:shadow-[0_10px_30px_rgba(139,92,246,0.12)] transition-shadow duration-300">
+<div class="h-48 w-full relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern, minimalist art gallery featuring a digital art installation with soft violet and pink ambient lighting against pristine white walls. High definition aesthetic, serene and culturally sophisticated mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC24SRtNQQntwYTEzl2ggZpq1QVY4TRY4Kd2IHcFnCLMJ_f5XszT6jXmD_veDmbjys_4NyK-2fsTwUKxkc6ymSbKr3ujJWVix9tnqlAQkU9GPYBzJ1fDc3DdLXDd9sWql0I6oHksmLeBe7snmO8xXZUGv2MzCbumGdjSU4KVrMUJ5Jgh5qwIiUBmg4Lw950OMGDtZtVyYBLyzUrlF4wfzLGWfEJeA8_R7539N2c6q3cPqYqn1-JsyK8"/>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full p-2 text-secondary shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<span class="text-primary font-label-sm text-label-sm bg-primary/10 px-2 py-1 rounded">Cultural</span>
+<span class="text-on-surface font-label-sm text-label-sm font-semibold">Free</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-1 leading-tight line-clamp-1">Digital Horizons Exhibition</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-4 line-clamp-2">Explore the intersection of AI and visual arts in this immersive gallery experience featuring international artists.</p>
+<div class="mt-auto flex items-center justify-between border-t border-surface-container-highest pt-4">
+<div class="flex items-center gap-1 text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>NGMA, Mumbai</span>
+</div>
+<span class="text-secondary font-body-sm text-body-sm">Ongoing</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-t-0 shadow-[0_-4px_20px_rgba(31,41,55,0.05)] flex justify-around items-center h-20 pb-safe px-4">
+<!-- Home (Active) -->
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-semibold w-16 h-full hover:bg-primary/5 transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<!-- Explore -->
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim w-16 h-full hover:bg-primary/5 transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</button>
+<!-- Bookings -->
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim w-16 h-full hover:bg-primary/5 transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="confirmation_number">confirmation_number</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</button>
+<!-- Profile -->
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim w-16 h-full hover:bg-primary/5 transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+</body></html>

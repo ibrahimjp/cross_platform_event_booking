@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ticket Selection - EventBook</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#fffbff",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container": "#e6eeff",
+                        "surface-variant": "#d9e3f6",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#5c5f60",
+                        "on-surface-variant": "#494454",
+                        "on-primary-fixed": "#23005c",
+                        "secondary-fixed-dim": "#c5c7c8",
+                        "surface-container-high": "#dee9fc",
+                        "primary-fixed": "#e9ddff",
+                        "outline-variant": "#cbc3d7",
+                        "surface-container-low": "#eff4ff",
+                        "on-background": "#121c2a",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-container": "#626566",
+                        "inverse-primary": "#d0bcff",
+                        "on-tertiary-fixed": "#2c1700",
+                        "surface-container-highest": "#d9e3f6",
+                        "primary": "#6b38d4",
+                        "tertiary-container": "#a76500",
+                        "background": "#f8f9ff",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "surface-tint": "#6d3bd7",
+                        "secondary-container": "#e1e3e4",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb869",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdcbb",
+                        "on-surface": "#121c2a",
+                        "on-error-container": "#93000a",
+                        "outline": "#7b7486",
+                        "on-secondary-fixed": "#191c1d",
+                        "on-primary-fixed-variant": "#5516be",
+                        "surface-bright": "#f8f9ff",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#454748",
+                        "primary-container": "#8455ef",
+                        "secondary-fixed": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#855000",
+                        "inverse-surface": "#27313f",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d0dbed"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max-width": "1280px",
+                        "section-gap": "80px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(243, 244, 246, 0.5);
+            box-shadow: 0px 4px 20px rgba(31, 41, 55, 0.05);
+        }
+        .glass-card:hover {
+            box-shadow: 0px 10px 30px rgba(139, 92, 246, 0.12);
+        }
+        
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(139, 92, 246, 0.2);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(139, 92, 246, 0.4);
+        }
+        
+        .quantity-btn {
+            transition: all 0.2s ease;
+        }
+        .quantity-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col pt-16 pb-32 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full max-w-container-max-width mx-auto">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">EventBook</div>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[800px] mx-auto px-margin-mobile md:px-margin-desktop pt-gutter pb-section-gap flex flex-col gap-6">
+<!-- Header Info -->
+<div class="text-center mb-4">
+<h1 class="font-headline-md text-headline-md text-on-surface mb-2">Select Tickets</h1>
+<p class="font-body-md text-body-md text-secondary">Tech Conference 2024 • Bengaluru, KA</p>
+</div>
+<!-- Ticket Options -->
+<div class="flex flex-col gap-4">
+<!-- VIP Ticket -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden transition-all duration-300">
+<div class="absolute top-0 right-0 bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1 rounded-bl-lg">Most Popular</div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Platinum Pass</h2>
+<span class="material-symbols-outlined text-primary" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="font-headline-md text-headline-md text-primary mb-2">₹24,999</div>
+<ul class="font-body-sm text-body-sm text-secondary space-y-1">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="check">check</span> Premium front-row seating</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="check">check</span> Gala networking dinner</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="check">check</span> Priority VIP check-in</li>
+</ul>
+</div>
+<div class="flex items-center justify-end md:justify-center gap-4 bg-surface-container-low rounded-lg p-2 border border-outline-variant/20">
+<button class="quantity-btn w-8 h-8 flex items-center justify-center rounded-md bg-white text-secondary shadow-sm hover:text-primary hover:bg-surface-container" onclick="updateQty('vip', -1)">
+<span class="material-symbols-outlined text-[20px]" data-icon="remove">remove</span>
+</button>
+<span class="font-headline-sm text-headline-sm w-8 text-center" id="qty-vip">0</span>
+<button class="quantity-btn w-8 h-8 flex items-center justify-center rounded-md bg-white text-secondary shadow-sm hover:text-primary hover:bg-surface-container" onclick="updateQty('vip', 1)">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Early Bird Ticket -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden transition-all duration-300">
+<div class="absolute top-0 right-0 bg-tertiary-fixed-dim text-on-tertiary-fixed font-label-sm text-label-sm px-3 py-1 rounded-bl-lg">Ends soon</div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex-grow">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-1">Early Bird Offer</h2>
+<div class="font-headline-md text-headline-md text-on-surface mb-2">₹9,999 <span class="font-body-sm text-body-sm text-secondary line-through ml-2">₹14,999</span></div>
+<ul class="font-body-sm text-body-sm text-secondary space-y-1">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="check">check</span> Full conference access</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="check">check</span> Premium welcome kit included</li>
+</ul>
+</div>
+<div class="flex items-center justify-end md:justify-center gap-4 bg-surface-container-low rounded-lg p-2 border border-outline-variant/20">
+<button class="quantity-btn w-8 h-8 flex items-center justify-center rounded-md bg-white text-secondary shadow-sm hover:text-primary hover:bg-surface-container" onclick="updateQty('early', -1)">
+<span class="material-symbols-outlined text-[20px]" data-icon="remove">remove</span>
+</button>
+<span class="font-headline-sm text-headline-sm w-8 text-center" id="qty-early">0</span>
+<button class="quantity-btn w-8 h-8 flex items-center justify-center rounded-md bg-white text-secondary shadow-sm hover:text-primary hover:bg-surface-container" onclick="updateQty('early', 1)">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- General Admission -->
+<div class="glass-card rounded-xl p-6 transition-all duration-300">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex-grow">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-1">Standard Pass</h2>
+<div class="font-headline-md text-headline-md text-on-surface mb-2">₹14,999</div>
+<ul class="font-body-sm text-body-sm text-secondary space-y-1">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="check">check</span> Full conference access</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="close text-outline-variant">close</span> Standard access only</li>
+</ul>
+</div>
+<div class="flex items-center justify-end md:justify-center gap-4 bg-surface-container-low rounded-lg p-2 border border-outline-variant/20">
+<button class="quantity-btn w-8 h-8 flex items-center justify-center rounded-md bg-white text-secondary shadow-sm hover:text-primary hover:bg-surface-container" onclick="updateQty('ga', -1)">
+<span class="material-symbols-outlined text-[20px]" data-icon="remove">remove</span>
+</button>
+<span class="font-headline-sm text-headline-sm w-8 text-center" id="qty-ga">0</span>
+<button class="quantity-btn w-8 h-8 flex items-center justify-center rounded-md bg-white text-secondary shadow-sm hover:text-primary hover:bg-surface-container" onclick="updateQty('ga', 1)">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar (Summary & Checkout) -->
+<div class="fixed bottom-0 w-full z-40 bg-surface/90 backdrop-blur-xl border-t border-outline-variant/20 shadow-[0_-10px_30px_rgba(0,0,0,0.05)] md:static md:bg-transparent md:border-none md:shadow-none md:pb-section-gap px-margin-mobile md:px-0">
+<div class="max-w-[800px] mx-auto py-4 md:py-0 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-secondary">Total Amount</span>
+<span class="font-display-lg-mobile text-display-lg-mobile md:font-headline-md md:text-headline-md text-on-surface font-bold" id="total-price">₹0</span>
+</div>
+<button class="w-full md:w-auto bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-md text-label-md py-4 px-8 rounded-xl shadow-[0_4px_14px_0_rgba(139,92,246,0.39)] hover:shadow-[0_6px_20px_rgba(139,92,246,0.23)] hover:opacity-90 transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2">
+                Continue to Checkout
+                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- AI Chatbot FAB (Suppressed on Checkout/Transactional, but keeping as per generic style guide, though logic suggests suppression here. I will suppress it to prioritize checkout flow as per mandate) -->
+<!-- Suppressed: <div class="fixed bottom-24 right-6 ..."> -->
+<script>
+        const prices = {
+            vip: 24999,
+            early: 9999,
+            ga: 14999
+        };
+        const quantities = {
+            vip: 0,
+            early: 0,
+            ga: 0
+        };
+
+        function updateQty(type, change) {
+            const newQty = quantities[type] + change;
+            if (newQty >= 0) {
+                quantities[type] = newQty;
+                document.getElementById(`qty-${type}`).innerText = newQty;
+                updateTotal();
+            }
+        }
+
+        function updateTotal() {
+            let total = 0;
+            for (const type in quantities) {
+                total += quantities[type] * prices[type];
+            }
+            document.getElementById('total-price').innerText = `₹${total.toLocaleString('en-IN')}`;
+        }
+    </script>
+</body></html>
