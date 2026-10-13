@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'core/session.dart';
 import 'core/theme.dart';
 import 'screens/login_screen.dart';
 import 'screens/shell.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(isOptional: true);
   final session = Session()..restore();
   runApp(AdminApp(session: session));
 }

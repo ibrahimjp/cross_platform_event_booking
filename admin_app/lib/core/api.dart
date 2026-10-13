@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -32,6 +33,7 @@ class AdminApi {
   static final AdminApi instance = AdminApi._();
 
   static const _urlKey = 'admin_api_url';
+  static const _urlDefaultKey = 'admin_api_url_default';
   static const _configuredUrl = String.fromEnvironment('API_BASE_URL');
 
   final http.Client _client = http.Client();
@@ -41,7 +43,10 @@ class AdminApi {
   /// Called when the server rejects the admin session (expired, demoted, suspended).
   VoidCallback? onUnauthorized;
 
+  /// BACKEND_URI from admin_app/.env, then --dart-define=API_BASE_URL, then a local server.
   static String get defaultBaseUrl {
+    final fromEnv = (dotenv.isInitialized ? dotenv.env['BACKEND_URI'] : null)?.trim() ?? '';
+    if (fromEnv.isNotEmpty) return _trim(fromEnv);
     if (_configuredUrl.trim().isNotEmpty) return _trim(_configuredUrl);
     if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
       return 'http://10.0.2.2:3000';
@@ -59,6 +64,8 @@ class AdminApi {
     try {
       final prefs = await SharedPreferences.getInstance();
       final saved = prefs.getString(_urlKey);
+      // A manual override only applies while .env still points at the backend it was made against.
+      if (prefs.getString(_urlDefaultKey) != defaultBaseUrl) return;
       if (saved != null && saved.trim().isNotEmpty) _baseUrl = _trim(saved);
     } catch (_) {
       // Preferences are optional; fall back to the default URL.
@@ -70,6 +77,7 @@ class AdminApi {
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString(_urlKey, _baseUrl);
+      await prefs.setString(_urlDefaultKey, defaultBaseUrl);
     } catch (_) {}
   }
 

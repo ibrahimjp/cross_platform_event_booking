@@ -4,3 +4,6 @@ build/
 .dart_tool/
 .gradle/
 *.apk
+# The Flutter apps' .env only holds the public backend URL, so it is committed.
+!eventbook_app/.env
+!admin_app/.env

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,9 +26,13 @@ class ApiService {
   ApiService._();
 
   static const _prefsKey = 'apiBaseUrl';
+  static const _prefsDefaultKey = 'apiBaseUrlDefault';
   static const _configuredUrl = String.fromEnvironment('API_BASE_URL');
 
+  /// BACKEND_URI from eventbook_app/.env, then --dart-define=API_BASE_URL, then a local server.
   static String get defaultBaseUrl {
+    final fromEnv = (dotenv.isInitialized ? dotenv.env['BACKEND_URI'] : null)?.trim() ?? '';
+    if (fromEnv.isNotEmpty) return _normalize(fromEnv);
     final configured = _configuredUrl.trim();
     if (configured.isNotEmpty) return _normalize(configured);
     if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) return 'http://10.0.2.2:3000';
@@ -46,6 +51,8 @@ class ApiService {
   static Future<void> loadSavedBaseUrl() async {
     final preferences = await SharedPreferences.getInstance();
     final saved = preferences.getString(_prefsKey);
+    // A manual override only applies while .env still points at the backend it was made against.
+    if (preferences.getString(_prefsDefaultKey) != defaultBaseUrl) return;
     if (saved != null && saved.trim().isNotEmpty) _baseUrl = _normalize(saved);
   }
 
@@ -53,6 +60,7 @@ class ApiService {
     _baseUrl = url.trim().isEmpty ? defaultBaseUrl : _normalize(url);
     final preferences = await SharedPreferences.getInstance();
     await preferences.setString(_prefsKey, _baseUrl);
+    await preferences.setString(_prefsDefaultKey, defaultBaseUrl);
   }
 
   /// Returns null when the server is reachable, otherwise an error message.
